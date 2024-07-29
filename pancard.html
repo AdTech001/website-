@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+
+        .navigation-buttons {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .navigation-buttons button {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .navigation-buttons button:hover {
+            background: #c62828;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="date"],
+        .form-row select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-button button {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .form-button button:hover {
+            background: #c62828;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="navigation-buttons">
+                <button type="button" onclick="showTab('personalDetails')">Personal Details</button>
+                <button type="button" onclick="showTab('documentDetails')">Document Details</button>
+                <button type="button" onclick="showTab('contactParentDetails')">Contact & Parent Details</button>
+                <button type="button" onclick="showTab('addressDetails')">Address Details</button>
+                <button type="button" onclick="showTab('otherDetails')">Other Details</button>
+                <button type="button" onclick="showTab('documentsUpload')">Documents Upload</button>
+            </div>
+
+            <!-- Personal Details Section -->
+            <div id="personalDetails" class="tab-content active">
+                <h2>Personal Details</h2>
+                <div class="form-section">
+                    <div class="form-row">
+                        <label for="nameTitle">Name Title:</label>
+                        <select id="nameTitle" name="nameTitle">
+                            <option value="">--- Select Name Title ---</option>
+                            <option value="mr">Mr.</option>
+                            <option value="mrs">Mrs.</option>
+                            <option value="miss">Miss</option>
+                            <option value="ms">Ms.</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="lastName">Last Name/Surname:</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name/Surname" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" id="middleName" name="middleName" placeholder="Enter Middle Name" />
+                    </div>
+                    <div class="form-row">
+                        <label for="nameOnCard">Name on Card*:</label>
+                        <input type="text" id="nameOnCard" name="nameOnCard" placeholder="Enter Name as it will appear on PAN card" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="otherName">Have you been known by any other name?</label>
+                        <input type="text" id="otherName" name="otherName" placeholder="Enter any other names known by" />
+                    </div>
+                    <div class="form-row">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="">-- Select Gender --</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" placeholder="DD/MM/YYYY" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="aadhaarNumber">AADHAAR Number:</label>
+                        <input type="text" id="aadhaarNumber" name="aadhaarNumber" placeholder="Enter Aadhaar Number" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="enrolmentId">Enrolment ID:</label>
+                        <input type="text" id="enrolmentId" name="enrolmentId" placeholder="Enter Enrolment ID" />
+                    </div>
+                    <div class="form-row">
+                        <label for="aadhaarName">Name as per AADHAAR/AADHAAR Enrolment ID:</label>
+                        <input type="text" id="aadhaarName" name="aadhaarName" placeholder="Enter Name as per Aadhaar" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document Details Section -->
+            <div id="documentDetails" class="tab-content">
+                <h2>Document Details</h2>
+                <div class="form-section">
+                    <div class="form-row">
+                        <label for="panCardNumber">PAN Card Number:</label>
+                        <input type="text" id="panCardNumber" name="panCardNumber" placeholder="Enter PAN Card Number" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="panCardName">Name on PAN Card:</label>
+                        <input type="text" id="panCardName" name="panCardName" placeholder="Enter Name as it appears on PAN Card" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="panCardIssuedDate">Date of Issue:</label>
+                        <input type="date" id="panCardIssuedDate" name="panCardIssuedDate" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="panCardStatus">PAN Card Status:</label>
+                        <select id="panCardStatus" name="panCardStatus">
+                            <option value="">-- Select Status --</option>
+                            <option value="issued">Issued</option>
+                            <option value="notIssued">Not Issued</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact & Parent Details Section -->
+            <div id="contactParentDetails" class="tab-content">
+                <h2>Contact & Parent Details</h2>
+                <!-- Add form fields here -->
+            </div>
+
+            <!-- Address Details Section -->
+            <div id="addressDetails" class="tab-content">
+                <h2>Address Details</h2>
+                <!-- Add form fields here -->
+            </div>
+
+            <!-- Other Details Section -->
+            <div id="otherDetails" class="tab-content">
+                <h2>Other Details</h2>
+                <!-- Add form fields here -->
+            </div>
+
+            <!-- Documents Upload Section -->
+            <div id="documentsUpload" class="tab-content">
+                <h2>Documents Upload</h2>
+                <!-- Add file upload fields here -->
+            </div>
+
+            <div class="form-button">
+                <button type="button" onclick="showTab('personalDetails')">Back Step</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

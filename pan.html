@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Details Form</title>
+    <style>
+        .form-section { margin-bottom: 20px; }
+        .form-row { margin-bottom: 15px; }
+        .form-holder { display: flex; align-items: center; }
+        .form-holder label { margin-right: 10px; }
+        .form-button { margin-top: 20px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .navigation-buttons { margin-top: 20px; }
+        .navigation-buttons button { margin-right: 10px; }
+    </style>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <div class="navigation-buttons">
+            <button type="button" onclick="showTab('personalDetails')">Personal Details</button>
+            <button type="button" onclick="showTab('documentDetails')">Document Details</button>
+            <button type="button" onclick="showTab('contactParentDetails')">Contact & Parent Details</button>
+            <button type="button" onclick="showTab('addressDetails')">Address Details</button>
+            <button type="button" onclick="showTab('otherDetails')">Other Details</button>
+            <button type="button" onclick="showTab('documentsUpload')">Documents Upload</button>
+        </div>
+
+        <!-- Personal Details Section -->
+        <div id="personalDetails" class="tab-content active">
+            <h2>Personal Details</h2>
+            <div class="form-section">
+                <div class="form-row">
+                    <label for="nameTitle">Name Title:</label>
+                    <select id="nameTitle" name="nameTitle">
+                        <option value="">--- Select Name Title ---</option>
+                        <option value="mr">Mr.</option>
+                        <option value="mrs">Mrs.</option>
+                        <option value="miss">Miss</option>
+                        <option value="ms">Ms.</option>
+                        <!-- Add other options as needed -->
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="lastName">Last Name/Surname:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name/Surname" required />
+                </div>
+                <div class="form-row">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" required />
+                </div>
+                <div class="form-row">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName" placeholder="Enter Middle Name" />
+                </div>
+                <div class="form-row">
+                    <label for="nameOnCard">Name on Card*:</label>
+                    <input type="text" id="nameOnCard" name="nameOnCard" placeholder="Enter Name as it will appear on PAN card" required />
+                </div>
+                <div class="form-row">
+                    <label for="otherName">Have you been known by any other name?</label>
+                    <input type="text" id="otherName" name="otherName" placeholder="Enter any other names known by" />
+                </div>
+                <div class="form-row">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" placeholder="DD/MM/YYYY" required />
+                </div>
+                <div class="form-row">
+                    <label for="aadhaarNumber">AADHAAR Number:</label>
+                    <input type="text" id="aadhaarNumber" name="aadhaarNumber" placeholder="Enter Aadhaar Number" required />
+                </div>
+                <div class="form-row">
+                    <label for="enrolmentId">Enrolment ID:</label>
+                    <input type="text" id="enrolmentId" name="enrolmentId" placeholder="Enter Enrolment ID" />
+                </div>
+                <div class="form-row">
+                    <label for="aadhaarName">Name as per AADHAAR/AADHAAR Enrolment ID:</label>
+                    <input type="text" id="aadhaarName" name="aadhaarName" placeholder="Enter Name as per Aadhaar" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Sections (documentDetails, contactParentDetails, addressDetails, otherDetails, documentsUpload) -->
+        <!-- You can fill in the other sections similarly -->
+
+        <div class="form-button">
+            <button type="button" onclick="showTab('personalDetails')">Back Step</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
